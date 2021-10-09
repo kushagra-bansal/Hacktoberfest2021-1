@@ -1,0 +1,23 @@
+from operator import sub
+
+s = int(input())
+
+pi = [int(n) for n in input().split()]
+pii = [int(n) for n in input().split()]
+
+piii = []
+for i in range(len(pi)):
+    difference = pii[i] - pi[i]
+    piii.append(difference)
+
+a = sum(pi)
+
+piii.sort()
+
+for i in range(0, s//2+1):
+    if(i < s//2):
+        a += piii[i]
+    elif(piii[i] < 0):
+        a += piii[i]
+
+print(a)
