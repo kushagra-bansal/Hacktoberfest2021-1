@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int countTriplets(int arr[], int n)
+{
+    int freq[100] = {0};
+
+    for (int i = 0; i < n; i++)
+    {
+        freq[arr[i]]++;
+    }
+    int count = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (freq[arr[i] + arr[j]])
+            {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    int pi = n;
+    int arr[n];
+
+    while (pi--)
+        cin >> arr[pi];
+
+    cout << countTriplets(arr, n);
+    return 0;
+}
